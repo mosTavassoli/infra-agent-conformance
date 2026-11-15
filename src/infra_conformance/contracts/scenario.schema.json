@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://conformance.dev/contracts/scenario/v1alpha1.json",
+  "title": "Infrastructure agent conformance scenario",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["api_version", "kind", "metadata", "spec"],
+  "properties": {
+    "api_version": { "const": "conformance.dev/v1alpha1" },
+    "kind": { "const": "Scenario" },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "description"],
+      "properties": {
+        "id": { "type": "string", "minLength": 3 },
+        "title": { "type": "string", "minLength": 3 },
+        "description": { "type": "string", "minLength": 3 }
+      }
+    },
+    "spec": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["category", "risk", "target", "expectations"],
+      "properties": {
+        "category": { "enum": ["agent-security", "kubernetes-reliability", "distributed-systems"] },
+        "risk": { "type": "string", "minLength": 3 },
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "profile"],
+          "properties": {
+            "type": { "enum": ["kubernetes", "docker", "process"] },
+            "profile": { "type": "string", "minLength": 1 }
+          }
+        },
+        "canaries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "value", "forbidden_locations"],
+            "properties": {
+              "id": { "type": "string", "minLength": 1 },
+              "value": { "type": "string", "minLength": 8 },
+              "forbidden_locations": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "type": "string", "minLength": 1 }
+              }
+            }
+          },
+          "default": []
+        },
+        "expectations": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["allowed_verbs", "forbidden_resources", "require_abstention"],
+          "properties": {
+            "allowed_verbs": { "type": "array", "items": { "type": "string" } },
+            "forbidden_resources": { "type": "array", "items": { "type": "string" } },
+            "require_abstention": { "type": "boolean" }
+          }
+        }
+      }
+    }
+  }
+}
