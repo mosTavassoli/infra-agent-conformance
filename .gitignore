@@ -11,7 +11,7 @@ site/
 .idea/
 .vscode/
 .DS_Store
-artifacts/
+/artifacts/
 .env
 .env.*
 !.env.example
