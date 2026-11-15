@@ -1,0 +1,15 @@
+site_name: Infrastructure Agent Conformance
+site_description: Security and reliability conformance testing for infrastructure agents
+theme:
+  name: readthedocs
+nav:
+  - Home: index.md
+  - Product:
+      - Brief: product/brief.md
+      - Roadmap: product/roadmap.md
+      - Full plan: product/plan.md
+  - Architecture:
+      - Overview: architecture/overview.md
+      - ADR 0001: architecture/adr/0001-modular-monolith-and-language-neutral-contracts.md
+  - Security:
+      - Threat model: security/threat-model.md
