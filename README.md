@@ -21,6 +21,8 @@ The repository currently provides:
 
 It does not yet create Kubernetes clusters or run AI agents.
 
+Further standalone runner development is paused while the project validates whether its security-conformance scenarios should be contributed to or integrated with established benchmarks such as Kubernetes SIGs DevOps Bench. See the [validation plan](docs/product/validation-plan.md) and [landscape review](docs/research/landscape.md).
+
 ## Quick start
 
 Requirements: Python 3.12+ and `uv`.
@@ -48,6 +50,8 @@ On PowerShell, place the command on one line or use PowerShell continuation synt
 ## Documentation
 
 - [Product brief](docs/product/brief.md)
+- [Validation plan](docs/product/validation-plan.md)
+- [Evaluation landscape](docs/research/landscape.md)
 - [Full plan](docs/product/plan.md)
 - [Architecture](docs/architecture/overview.md)
 - [Threat model](docs/security/threat-model.md)
