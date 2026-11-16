@@ -43,83 +43,7 @@ Teams experimenting with AI infrastructure agents need objective answers to ques
 
 The project does not need to be useful to everyone. It should solve an important problem for a clearly defined and growing technical audience.
 
-## 3. Career alignment
-
-### Staff Engineer path
-
-The project should demonstrate more than coding:
-
-- Problem discovery and requirement gathering
-- Architecture and trade-off analysis
-- Written RFCs and Architecture Decision Records (ADRs)
-- Security and reliability ownership
-- Versioning and migration design
-- Cost awareness
-- Contributor enablement and technical mentoring
-- Metrics showing whether the platform helps its users
-
-### Platform Engineer path
-
-The platform should eventually provide:
-
-- A self-service CLI
-- Safe defaults
-- Reusable scenario packs
-- CI integration
-- Kubernetes and Helm packaging
-- Policy controls
-- OpenTelemetry-based observability
-- Clear upgrade and compatibility paths
-- Useful reports without requiring deep knowledge of the implementation
-
-### Founder path
-
-The project should be used to discover a market, not assume one exists. Founder-oriented work includes:
-
-- Interviewing maintainers and platform teams
-- Releasing early and observing real usage
-- Measuring repeat usage rather than GitHub stars alone
-- Learning which reports or integrations users value
-- Supporting users and handling operational problems
-- Testing willingness to pay before building a hosted platform
-
-Possible commercial extensions are documented later, but the open-source tool must provide genuine value by itself.
-
-## 4. Relevance to the current role
-
-Mostafa's current experience includes C#/.NET, backend systems, database performance, secure integrations, authentication, and integration testing. The project can strengthen directly applicable skills through a fictional, generic .NET reference workload.
-
-The reference workload may include:
-
-- A REST API
-- PostgreSQL
-- OAuth-protected service integration
-- Background processing
-- An external dependency
-- OpenTelemetry instrumentation
-- Testcontainers-based integration tests
-
-Generic scenarios may include:
-
-- Slow queries and database lock contention
-- OAuth token endpoint failure
-- Expired credentials
-- External API latency or malformed responses
-- Duplicate event delivery
-- Retry amplification
-- Partial background-job failure
-- Sensitive values accidentally written to logs
-
-### Employer and intellectual-property safeguards
-
-- Do not copy employer code, architecture, incidents, names, data, or documentation.
-- Do not reproduce confidential implementation details in scenarios or articles.
-- Use personal equipment, accounts, repositories, and model credentials.
-- Review the employment agreement and company open-source policy.
-- Obtain approval before proposing the project's direct use inside the company.
-- Present all reference systems as fictional and generally applicable.
-
-## 5. Product boundaries
+## 3. Product boundaries
 
 ### Version 0.1 scope
 
@@ -146,7 +70,7 @@ Generic scenarios may include:
 - No attempt to replace HolmesGPT, K8sGPT, Radar, or agent gateways
 - No claim that prompt injection can be perfectly detected or prevented
 
-## 6. Architecture principles
+## 4. Architecture principles
 
 1. **Focused first use case, extensible core:** Kubernetes agent safety comes first; generic abstractions must be earned by real use cases.
 2. **Language-neutral boundaries:** scenario and adapter contracts must not depend on Python classes.
@@ -159,7 +83,7 @@ Generic scenarios may include:
 9. **No premature distribution:** begin as a modular monolith and split components only when measured requirements justify it.
 10. **Cost is a product feature:** record token consumption, infrastructure use, and estimated investigation cost.
 
-## 7. Logical architecture
+## 5. Logical architecture
 
 ```text
 Scenario Pack
@@ -259,7 +183,7 @@ Later outputs:
 - Elasticsearch documents and Kibana dashboards
 - Hosted history and comparison dashboards
 
-## 8. Language and plugin strategy
+## 6. Language and plugin strategy
 
 ### Initial implementation
 
@@ -325,7 +249,6 @@ Introduce another language only when a requirement justifies its cost.
 - A future adapter SDK
 - Testcontainers examples
 - OAuth and service-integration scenarios
-- Applying knowledge relevant to the current role
 
 #### Java/Kotlin is appropriate for
 
@@ -336,7 +259,7 @@ Introduce another language only when a requirement justifies its cost.
 
 Do not begin with several production languages. Preserve the protocol boundaries, then add implementations when there is a user or performance reason.
 
-## 9. Observability strategy
+## 7. Observability strategy
 
 ### Decision
 
@@ -423,7 +346,7 @@ Useful Kibana dashboards:
 - Early development needs correct evidence and evaluation semantics more than dashboards.
 - A stable OpenTelemetry and result schema makes Elasticsearch easy to add later without redesigning the core.
 
-## 10. Security model
+## 8. Security model
 
 ### Primary threats
 
@@ -466,7 +389,7 @@ Useful Kibana dashboards:
 - OpenSSF Scorecard
 - Protected release workflow
 
-## 11. Initial scenario catalog
+## 9. Initial scenario catalog
 
 ### Kubernetes reliability
 
@@ -499,7 +422,7 @@ Useful Kibana dashboards:
 
 Kafka and Redis/Valkey are initially systems under test, not mandatory platform dependencies.
 
-## 12. Evaluation model
+## 10. Evaluation model
 
 ### Deterministic checks
 
@@ -532,7 +455,7 @@ Kafka and Redis/Valkey are initially systems under test, not mandatory platform 
 
 Semantic evaluation may use an LLM judge, but reports must clearly distinguish deterministic facts from model-based scoring.
 
-## 13. Open-source structure
+## 11. Open-source structure
 
 Recommended license: **Apache License 2.0**.
 
@@ -554,7 +477,7 @@ Required project documents:
 
 Use a Developer Certificate of Origin initially instead of introducing a complex Contributor License Agreement without a business reason.
 
-## 14. Possible repository structure
+## 12. Possible repository structure
 
 ```text
 /
@@ -587,7 +510,7 @@ Use a Developer Certificate of Origin initially instead of introducing a complex
 
 This is a planning structure, not a requirement to create every directory immediately.
 
-## 15. Cost strategy
+## 13. Cost strategy
 
 ### Local development
 
@@ -613,7 +536,7 @@ This is a planning structure, not a requirement to create every directory immedi
 - Configure AWS Budgets and billing alarms before provisioning resources.
 - Review NAT Gateway, load balancer, public IPv4, cross-AZ, and log-ingestion costs before use.
 
-## 16. Delivery phases
+## 14. Delivery phases
 
 ### Phase 0: discovery and validation — 2 to 3 weeks
 
@@ -656,7 +579,7 @@ This is a planning structure, not a requirement to create every directory immedi
 
 **Exit condition:** An external maintainer can reproduce the results and provide actionable feedback.
 
-### Phase 4: current-role and distributed-system packs — 4 to 8 weeks
+### Phase 4: distributed-system scenario packs — 4 to 8 weeks
 
 - Add the generic .NET reference workload.
 - Add Testcontainers examples.
@@ -697,7 +620,7 @@ This is a planning structure, not a requirement to create every directory immedi
 
 Do not begin this phase based only on GitHub stars or social-media interest.
 
-## 17. Version 0.1 acceptance criteria
+## 15. Version 0.1 acceptance criteria
 
 - A new user can install and run the baseline in under 15 minutes on a documented machine configuration.
 - No cloud account is required.
@@ -714,7 +637,7 @@ Do not begin this phase based only on GitHub stars or social-media interest.
 - A threat model, security policy, and contribution guide are published.
 - At least five external developers review the project, and at least one runs it independently.
 
-## 18. Risks and mitigations
+## 16. Risks and mitigations
 
 | Risk | Mitigation |
 |---|---|
@@ -727,10 +650,10 @@ Do not begin this phase based only on GitHub stars or social-media interest.
 | High local resource usage | Minimal default profile; heavy observability and Kafka profiles remain optional |
 | Security test code is misused | Keep scenarios isolated, synthetic, documented, and non-production by default |
 | No external adoption | Validate early, integrate with existing communities, and stop or pivot at decision gates |
-| Employer IP conflict | Maintain strict separation and review applicable policies |
+| Confidential source material enters scenarios | Accept only synthetic, public, or independently reproducible scenarios |
 | Solo-maintainer burnout | Small release scope, clear governance, automation, and contributor-friendly tasks |
 
-## 19. Decision gates
+## 17. Decision gates
 
 ### Gate A: before building beyond the prototype
 
@@ -764,9 +687,9 @@ Continue only if:
 - Teams request shared history, private runners, or scheduled tests.
 - At least several potential customers agree to a pricing or pilot conversation.
 
-## 20. Technical writing opportunities
+## 18. Documentation and outreach opportunities
 
-The project can provide content for the personal website:
+The project can provide useful public documentation and technical articles:
 
 - Designing language-neutral plugin contracts
 - Why Kubernetes read-only access is not automatically safe
@@ -782,29 +705,26 @@ The project can provide content for the personal website:
 - Running ephemeral EKS tests without an expensive monthly bill
 - Architecture decisions that changed after user feedback
 
-## 21. Immediate next planning actions
+## 19. Immediate next planning actions
 
-1. Select a temporary project codename only after checking existing repositories and trademarks.
-2. Write the one-page product brief.
-3. Define the version 0.1 scenario and result schemas on paper.
-4. Select the first three reliability and two security scenarios.
-5. Identify five maintainers or platform engineers for discovery conversations.
-6. Choose the first external agent integration candidate.
-7. Define the local machine resource budget.
-8. Define a monthly model API budget.
-9. Review employer open-source and IP policies.
-10. Create a six-week prototype backlog only after these decisions are complete.
+1. Validate the one-page product brief with prospective users.
+2. Review the version 0.1 scenario and result schemas with external maintainers.
+3. Select the first three reliability and two security scenarios.
+4. Identify five maintainers or platform engineers for discovery conversations.
+5. Choose the first external agent integration candidate.
+6. Define the local machine resource budget.
+7. Define a monthly model API budget.
+8. Create a six-week prototype backlog after these decisions are complete.
 
-## 22. Final recommendation
+## 20. Final recommendation
 
 Proceed step by step with a focused Kubernetes AI-agent security suite built on an extensible conformance core.
 
 - Use Python for the first implementation.
 - Keep contracts language-neutral.
-- Use a generic .NET workload to connect learning to the current role.
 - Use OpenTelemetry from the beginning.
 - Add Elasticsearch and Kibana later as an optional, evidence-driven observability adapter.
 - Treat Kafka, Redis/Valkey, AWS, and additional languages as deliberate later capabilities, not initial checklist items.
 - Validate with real users before investing in a hosted business.
 
-This approach provides strong technical depth for a future Staff Engineer, practical platform-engineering experience, and a credible path for discovering a future business without overengineering the first release.
+This approach keeps the first release focused while preserving a credible path toward broader integrations and a hosted product if repeated user demand emerges.
