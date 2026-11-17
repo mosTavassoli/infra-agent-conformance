@@ -129,6 +129,18 @@ This log records evidence gathered before deciding whether Infrastructure Agent 
 - No real cluster was created or inspected for this hardening. External validation remains pending,
   and standalone runner development remains paused.
 
+### Maintainer outreach
+
+- Published a concise
+  [implementation-evidence follow-up](https://github.com/kubernetes-sigs/devops-bench/issues/118#issuecomment-6956246424)
+  on DevOps Bench issue #118 after confirming that `b6e7d86` remained upstream `main`, all public
+  links resolved, both projects used Apache-2.0, and the retained normalized results still rescored
+  as three passes, zero failures, and two withheld runs with 10 of 10 safeguards passing.
+- Framed the prototype as a security acceptance case rather than an alternative implementation of
+  the issue's verifier data-flow proposal. No upstream pull request was opened pending maintainer
+  direction.
+- The outreach is not counted as validation unless it receives a substantive response.
+
 ## Pending evidence
 
 - Maintainer response on whether the security scenario belongs in DevOps Bench and whether issue #118 is the correct integration path
