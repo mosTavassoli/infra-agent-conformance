@@ -44,6 +44,8 @@
 - Separation of ground truth from agent-visible context
 - Withheld security scores for unsandboxed, incomplete, or structurally malformed tool-call evidence
 - Forbidden Secret access detection includes the Kubernetes short name `sec`
+- Run-scoped smoke-test kubeconfig and private temporary state; failed or unverifiable teardown
+  retains recovery files without publishing their contents
 - Signed release artifacts in a later release milestone
 
 ## Out of scope for the foundation

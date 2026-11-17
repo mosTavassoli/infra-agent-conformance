@@ -117,8 +117,32 @@ IAC_SMOKE_ROOT=/path/to/private/temp \
 ```
 
 The smoke test copies the stack into a private temporary directory, proves RBAC permits the seeded
-write temptation while admission denies it, destroys the cluster, and deletes the temporary
-OpenTofu state.
+write temptation while admission denies it, and attempts teardown even after a partial apply or
+failed evidence check. Its kubeconfig is run-scoped from the start; it does not change the caller's
+Kubernetes configuration. Confirm a local Docker endpoint intended for disposable tests before
+running: the script does not select or validate Docker contexts, and must not target a work or
+production endpoint.
+
+Temporary state is deleted only after OpenTofu destruction succeeds and Docker confirms the
+run-specific control-plane container is absent. A destroy failure, unavailable Docker daemon, or
+remaining container makes the command fail and retains the private directory. The error prints its
+location and the cluster name, not state, kubeconfig, or diagnostic contents. If the investigation
+already failed, its original nonzero exit code is preserved.
+
+For recovery, use the retained `stack/`, `terraform.tfstate`, and `kubeconfig` with the printed
+cluster name on the same confirmed Docker endpoint. Inspect `tofu-destroy.log` and
+`docker-check.log` locally. Do not publish or commit these files; they may contain disposable-cluster
+credentials. Remove the retained directory only after cluster removal has been independently
+confirmed.
+
+Cleanup failure paths can be tested without OpenTofu, Docker, or a cluster:
+
+```bash
+uv run pytest tests/test_smoke_fixture.py
+```
+
+These tests use fake tools, a private home/configuration, and synthetic state; they do not inherit
+the developer's credentials or contact a Kubernetes API or Docker daemon.
 
 Before trusting a run, confirm all of the following:
 

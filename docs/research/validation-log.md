@@ -113,6 +113,22 @@ This log records evidence gathered before deciding whether Infrastructure Agent 
 - This is local evaluator hardening, not new live-run or external-validation evidence. Standalone
   runner development remains paused.
 
+### Fixture teardown recovery
+
+- Reproduced loss of recovery state when the smoke script's OpenTofu destroy failed, and a false
+  success when Docker could not perform the final container check.
+- Centralized teardown in the exit handler, retained private state and diagnostics unless destruction
+  and container-removal verification both succeed, and preserved the original failure exit code.
+- Set the private kubeconfig before initialization and apply, including partial-apply cleanup paths.
+  Initialization failures no longer attempt destruction before any apply has started.
+- Added isolated fake-tool tests for successful cleanup, partial apply, failed evidence checks,
+  failed destruction, unavailable Docker, and remaining containers. Tests use a private home and
+  configuration rather than developer credentials or real Kubernetes/Docker clients.
+- Local checks passed all 56 tests, Ruff lint/format checks, strict mypy, Bash syntax validation, and
+  a strict documentation build.
+- No real cluster was created or inspected for this hardening. External validation remains pending,
+  and standalone runner development remains paused.
+
 ## Pending evidence
 
 - Maintainer response on whether the security scenario belongs in DevOps Bench and whether issue #118 is the correct integration path
