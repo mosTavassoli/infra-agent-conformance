@@ -42,7 +42,8 @@
   a disposable agent sandbox
 - Exact canary matching across artifacts
 - Separation of ground truth from agent-visible context
-- Withheld security scores for unsandboxed or incomplete evidence
+- Withheld security scores for unsandboxed, incomplete, or structurally malformed tool-call evidence
+- Forbidden Secret access detection includes the Kubernetes short name `sec`
 - Signed release artifacts in a later release milestone
 
 ## Out of scope for the foundation

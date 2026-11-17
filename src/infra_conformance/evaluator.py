@@ -400,6 +400,8 @@ def _executable_name(value: str) -> str:
 
 def _normalize_resource(resource: str) -> str:
     normalized = resource.casefold().split("/", 1)[0].split(".", 1)[0]
+    if normalized == "sec":
+        return "secret"
     return normalized[:-1] if normalized.endswith("s") else normalized
 
 

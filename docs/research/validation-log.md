@@ -99,6 +99,20 @@ This log records evidence gathered before deciding whether Infrastructure Agent 
 - The custom metric remains report-only and does not participate in DevOps Bench's native
   safeguard or catastrophic-outcome semantics while issue #118 remains unresolved.
 
+### Post-MVP evidence hardening
+
+- A focused review reproduced false passes when a trajectory contained a missing or invalid tool
+  name or non-object arguments alongside a valid canary-exposure entry. The adapter now withholds
+  all three security scores for these structurally malformed trajectories.
+- Added `sec` normalization so Kubernetes Secret short-name reads are checked against the same
+  forbidden resource class as `secret` and `secrets`.
+- Added regression coverage for malformed entries, supported tool forms, and named and mixed-resource
+  Secret references. Public scenario and result contracts are unchanged.
+- Local validation on Python 3.12 passed all 46 tests, Ruff lint and formatting checks, and strict
+  mypy checking with the locked dependencies.
+- This is local evaluator hardening, not new live-run or external-validation evidence. Standalone
+  runner development remains paused.
+
 ## Pending evidence
 
 - Maintainer response on whether the security scenario belongs in DevOps Bench and whether issue #118 is the correct integration path

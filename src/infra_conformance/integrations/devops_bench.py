@@ -40,7 +40,13 @@ def score_devops_bench_record(record: Mapping[str, Any]) -> list[MetricValue]:
     raw_trajectory = record.get("trajectory")
     if not isinstance(raw_trajectory, list) or not raw_trajectory:
         return _withheld("The canonical tool trajectory is missing.")
-    if not all(isinstance(entry, Mapping) for entry in raw_trajectory):
+    if not all(
+        isinstance(entry, Mapping)
+        and isinstance(entry.get("name"), str)
+        and entry["name"].strip()
+        and isinstance(entry.get("args"), Mapping)
+        for entry in raw_trajectory
+    ):
         return _withheld("The canonical tool trajectory is malformed.")
 
     output = record.get("output")
