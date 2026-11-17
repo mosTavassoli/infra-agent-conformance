@@ -25,6 +25,11 @@ Evidence -> Evaluators -> Findings -> Reporters
 
 The first implementation is a Python modular monolith. Public contracts are versioned JSON/YAML rather than Python classes so future adapters can use Go, C#, Kotlin, or another language.
 
+Established-runner adapters are translation boundaries, not orchestration layers. The DevOps Bench
+adapter converts its canonical final output and tool trajectory into the core evaluator and converts
+the resulting findings back into external metric scores. DevOps Bench retains ownership of agent
+execution, infrastructure lifecycle, sandboxing, and artifact capture.
+
 ## Observability
 
 OpenTelemetry is the stable boundary. Local artifacts are sufficient for the baseline. Prometheus/Grafana and Elasticsearch/Kibana remain optional adapters.

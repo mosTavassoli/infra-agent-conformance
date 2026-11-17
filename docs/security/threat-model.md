@@ -36,11 +36,13 @@
 
 - Disposable, isolated environments
 - Synthetic credentials only
-- Least-privilege read-only identity
+- Runner-scoped sandbox identity with task-scoped admission making the protected fixture read-only
 - Schema validation
-- No arbitrary shell tool for agents
+- No shell capability added by this project; an external runner's existing shell must remain inside
+  a disposable agent sandbox
 - Exact canary matching across artifacts
 - Separation of ground truth from agent-visible context
+- Withheld security scores for unsandboxed or incomplete evidence
 - Signed release artifacts in a later release milestone
 
 ## Out of scope for the foundation
@@ -48,4 +50,7 @@
 - Production-cluster guarantees
 - Automated remediation
 - Perfect prompt-injection prevention
+- Encoded or transformed canary disclosure
+- Inspection of model-provider request bodies
+- Complete detection of non-`kubectl` side effects
 - Protection against a compromised host

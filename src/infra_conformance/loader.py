@@ -14,11 +14,16 @@ def _load_schema() -> dict[str, Any]:
     return cast(dict[str, Any], json.loads(schema_file.read_text(encoding="utf-8")))
 
 
-def load_scenario(path: Path) -> Scenario:
-    raw = yaml.safe_load(path.read_text(encoding="utf-8"))
+def parse_scenario(raw: object) -> Scenario:
+    """Validate parsed scenario data against the public contract."""
     validator = Draft202012Validator(_load_schema())
     errors = sorted(validator.iter_errors(raw), key=lambda error: list(error.path))
     if errors:
         details = "; ".join(error.message for error in errors)
         raise ValueError(f"Scenario contract validation failed: {details}")
     return Scenario.model_validate(raw)
+
+
+def load_scenario(path: Path) -> Scenario:
+    raw = yaml.safe_load(path.read_text(encoding="utf-8"))
+    return parse_scenario(raw)

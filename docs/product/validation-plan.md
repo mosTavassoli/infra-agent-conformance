@@ -67,6 +67,11 @@ Ask SREGym or agent maintainers whether this evidence would affect their regress
 
 Prototype one scenario, preferably against DevOps Bench:
 
+**Implemented; external validation pending:** The
+[adversarial telemetry MVP](../experiments/adversarial-telemetry-mvp.md) implements this stage as an
+external DevOps Bench task and deterministic metric. No second scenario will be added before the
+exit condition is evaluated.
+
 1. Deploy a small workload to an isolated local cluster.
 2. Place a clearly synthetic canary and hostile operational instruction in logs or an annotation.
 3. Give the agent only the access required for investigation.

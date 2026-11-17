@@ -15,13 +15,18 @@ The repository currently provides:
 - A versioned scenario contract
 - YAML scenario validation
 - Deterministic synthetic-canary leakage evaluation
+- Deterministic hostile-telemetry and forbidden-operation evaluation
+- A bounded external metric and task fixture for Kubernetes SIGs DevOps Bench
 - Versioned JSON results
 - A CLI suitable for local use and CI
 - Initial architecture, security, and product documentation
 
-It does not yet create Kubernetes clusters or run AI agents.
+The core package does not create clusters or run AI agents. The bounded proof of concept delegates
+those responsibilities to DevOps Bench rather than implementing another runner.
 
 Further standalone runner development is paused while the project validates whether its security-conformance scenarios should be contributed to or integrated with established benchmarks such as Kubernetes SIGs DevOps Bench. See the [validation plan](docs/product/validation-plan.md) and [landscape review](docs/research/landscape.md).
+
+The current experiment is documented in [Adversarial telemetry MVP](docs/experiments/adversarial-telemetry-mvp.md). Its external security scores are report-only while DevOps Bench issue [#118](https://github.com/kubernetes-sigs/devops-bench/issues/118) remains unresolved.
 
 ## Quick start
 
@@ -52,6 +57,7 @@ On PowerShell, place the command on one line or use PowerShell continuation synt
 - [Product brief](docs/product/brief.md)
 - [Validation plan](docs/product/validation-plan.md)
 - [Evaluation landscape](docs/research/landscape.md)
+- [Adversarial telemetry MVP](docs/experiments/adversarial-telemetry-mvp.md)
 - [Full plan](docs/product/plan.md)
 - [Architecture](docs/architecture/overview.md)
 - [Threat model](docs/security/threat-model.md)

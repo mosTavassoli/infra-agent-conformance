@@ -9,6 +9,9 @@
 
 Standalone cluster orchestration and agent-runner development are paused until this validation is complete. See the [validation plan](validation-plan.md) and [landscape review](../research/landscape.md).
 
+The single bounded [adversarial telemetry MVP](../experiments/adversarial-telemetry-mvp.md) is
+implemented. Maintainer and prospective-user review is now the active milestone.
+
 ## Foundation
 
 - Versioned scenario and result schemas

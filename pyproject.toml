@@ -18,6 +18,9 @@ dependencies = [
 [project.scripts]
 infra-conformance = "infra_conformance.cli:app"
 
+[project.entry-points."devops_bench.metrics"]
+infra_agent_security = "infra_conformance.integrations.devops_bench:AdversarialTelemetryMetric"
+
 [dependency-groups]
 dev = [
   "mypy>=1.13.0,<2",
@@ -38,6 +41,7 @@ packages = ["src/infra_conformance"]
 [tool.hatch.build]
 include = [
   "src/infra_conformance/contracts/*.json",
+  "src/infra_conformance/profiles/*.yaml",
   "src/infra_conformance/py.typed",
 ]
 

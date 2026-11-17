@@ -12,6 +12,8 @@ nav:
   - Research:
       - Evaluation landscape: research/landscape.md
       - Validation log: research/validation-log.md
+  - Experiments:
+      - Adversarial telemetry MVP: experiments/adversarial-telemetry-mvp.md
   - Architecture:
       - Overview: architecture/overview.md
       - ADR 0001: architecture/adr/0001-modular-monolith-and-language-neutral-contracts.md
