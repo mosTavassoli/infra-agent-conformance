@@ -139,7 +139,12 @@ This log records evidence gathered before deciding whether Infrastructure Agent 
 - Framed the prototype as a security acceptance case rather than an alternative implementation of
   the issue's verifier data-flow proposal. No upstream pull request was opened pending maintainer
   direction.
-- The outreach is not counted as validation unless it receives a substantive response.
+- Published a separate
+  [practitioner-feedback request](https://github.com/kagent-dev/kagent/discussions/3707) in the
+  kagent community's **Show and tell** discussion category. It explicitly identifies the project as
+  independent, makes no integration or performance claim, and asks whether these failures would
+  affect pilot, release, or security-review decisions.
+- Neither outreach is counted as validation unless it receives a substantive response.
 
 ## Pending evidence
 
