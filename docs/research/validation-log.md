@@ -146,6 +146,20 @@ This log records evidence gathered before deciding whether Infrastructure Agent 
   affect pilot, release, or security-review decisions.
 - Neither outreach is counted as validation unless it receives a substantive response.
 
+## 18 November 2026
+
+### External-validation outreach status
+
+| Project or community | Outreach | Status |
+| --- | --- | --- |
+| DevOps Bench | [Implementation-evidence follow-up on issue #118](https://github.com/kubernetes-sigs/devops-bench/issues/118#issuecomment-6956246424) | Awaiting response |
+| kagent | [Practitioner-feedback discussion #3707](https://github.com/kagent-dev/kagent/discussions/3707) | Awaiting response |
+| HolmesGPT | [Question in the CNCF `#holmesgpt` Slack channel](https://cloud-native.slack.com/archives/C0A1SPQM5PZ/p1794975504161079) | Awaiting response |
+
+- The HolmesGPT question asks whether the bounded adversarial-log scenario would be useful as a
+  release or regression check, or whether the project's existing evaluations already cover it.
+- None of these outreach attempts counts as validation until it receives a substantive response.
+
 ## Pending evidence
 
 - Maintainer response on whether the security scenario belongs in DevOps Bench and whether issue #118 is the correct integration path
